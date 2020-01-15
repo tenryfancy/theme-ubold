@@ -1,0 +1,33 @@
+extends ../non-auth
+
+block headerText
+  p.text-muted.mb-4.mt-3
+    = "Don't have an account? Create your own account, it takes less than a minute"
+
+block content
+  form(id='signup-form', method='POST', 'novalidate')
+    input(type='hidden', name='_csrf', value=_csrf)
+    
+    .form-group.mb-3
+      label(for='email') Email
+      input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus, autocomplete='email', required)
+    
+    .form-group.mb-3
+      label(for='password') Password
+      input.form-control(type='password', name='password', id='password', placeholder='Password', autocomplete='new-password', required)
+
+    .form-group.mb-3
+      label(for='confirmPassword') Confirm Password
+      input.form-control(type='password', name='confirmPassword', id='confirmPassword', placeholder='Confirm Password', autocomplete='new-password', required)
+    
+    .form-group.mb-0.text-center
+      button.btn.btn-success.btn-block(type='submit')
+        = 'Sign Up'
+
+block footerLinks    
+  .row.mt-3
+    .col-12.text-center
+      p.text-white-50
+        = "Already have account?"
+        a.text-white.ml-1(href='/login') 
+          strong Login

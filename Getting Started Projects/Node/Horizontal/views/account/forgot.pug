@@ -1,0 +1,25 @@
+extends ../non-auth
+
+block headerText
+  p.text-muted.mb-4.mt-3
+    = "Enter your email address and we'll send you an email with instructions to reset your password."
+
+block content
+  form(method='POST', 'novalidate')
+    input(type='hidden', name='_csrf', value=_csrf)
+
+    .form-group.mb-3
+      label(for='email') Email
+      input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus, autocomplete='email', required)
+    
+    .form-group.mb-0.text-center
+      button.btn.btn-primary.btn-block(type='submit')
+        = 'Submit'
+
+block footerLinks    
+  .row.mt-3
+    .col-12.text-center
+      p.text-white-50
+        = "Back to"
+        a.text-white.ml-1(href='/login') 
+          strong Login

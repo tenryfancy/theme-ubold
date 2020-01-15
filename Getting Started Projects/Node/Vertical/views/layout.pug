@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='A fully featured admin theme which can be used to build CRM, CMS, etc.')
+    meta(name='author', content='Coderthemes')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='csrf-token', content=_csrf)
+
+    title Ubold - Responsive Admin Dashboard Template | #{title}
+
+    link(rel='shortcut icon', href='/images/favicon.ico')
+
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    link(rel='stylesheet', href='/css/icons.css')
+    link(rel='stylesheet', href='/css/app.css')
+    block head
+
+  body
+
+    div(id="wrapper")
+      include partials/header
+      include partials/sidebar
+      .content-page
+        .content
+          block content
+        include partials/footer
+
+    include partials/right-sidebar
+
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/bootstrap.bundle.js')
+    script(src='/js/vendor/metisMenu.js')
+    script(src='/js/vendor/jquery.slimscroll.js')
+    script(src='/js/vendor/jquery.counterup.min.js')
+    script(src='/js/vendor/jquery.waypoints.min.js')
+    script(src='/js/vendor/waves.js')
+    script(src='/js/app.js')
+

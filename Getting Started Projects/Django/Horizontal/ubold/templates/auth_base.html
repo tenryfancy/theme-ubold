@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static i18n common %}
+
+{% block body_extra %}{% endblock %}
+
+{% block page_content %}
+
+<!-- Begin page -->
+<header id="topnav">
+  {% block topbar %}
+  {% include 'partials/topbar.html' %}
+  {% endblock %}
+
+  {% block navbar %}
+  {% include 'partials/navbar.html' %}
+  {% endblock %}
+</header>
+
+<div class="wrapper">
+  {% block content %}{% endblock %}
+</div>
+
+{% block footer %}
+{% include 'partials/footer.html' %}
+{% endblock %}
+
+{% block right_sidebar %}
+{% include 'partials/right-sidebar.html' %}
+{% endblock %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+// ========== Left Sidebar Start ==========
+.left-side-menu
+  .slimscroll-menu
+    // - Sidemenu
+    #sidebar-menu
+      ul#side-menu.metismenu
+        li.menu-title Navigation
+        li
+          a.waves-effect(href='javascript: void(0);')
+            i.remixicon-dashboard-line
+            span.badge.badge-success.badge-pill.float-right 2
+            span  Dashboards 
+          ul.nav-second-level(aria-expanded='false')
+            li
+              a(href='/') Dashboard 1
+            li
+              a(href='/dashboard2') Dashboard 2
+        li
+          a.waves-effect(href='javascript: void(0);')
+            i.remixicon-folder-add-line
+            span  Multi Level 
+            span.menu-arrow
+          ul.nav-second-level.nav(aria-expanded='false')
+            li
+              a(href='javascript: void(0);') Level 1.1
+            li
+              a(href='javascript: void(0);' aria-expanded='false')
+                | Level 1.2
+                span.menu-arrow
+              ul.nav-third-level.nav(aria-expanded='false')
+                li
+                  a(href='javascript: void(0);') Level 2.1
+                li
+                  a(href='javascript: void(0);') Level 2.2
+    // End Sidebar
+    .clearfix
+  // Sidebar -left
+// Left Sidebar End

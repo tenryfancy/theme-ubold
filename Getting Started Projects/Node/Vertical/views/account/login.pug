@@ -1,0 +1,31 @@
+extends ../non-auth
+
+block headerText
+  p.text-muted.mb-4.mt-3
+    = 'Enter your email address and password to access admin panel.'
+
+block content  
+  form(method='POST', 'novalidate')
+    input(type='hidden', name='_csrf', value=_csrf)
+
+    .form-group.mb-3
+      label(for='email') Email
+      input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus, autocomplete='email', required)
+    
+    .form-group.mb-3
+      label(for='password') Password
+      input.form-control(type='password', name='password', id='password', placeholder='Password', autocomplete='current-password', required)
+
+    .form-group.mb-0.text-center
+      button.btn.btn-primary.btn-block(type='submit')
+        = 'Login'
+
+block footerLinks    
+  .row.mt-3
+    .col-12.text-center
+      p
+        a.text-white-50.ml-1(href='/forgot') Forgot your password?
+      p.text-white-50
+        = "Don't have an account?"
+        a.text-white.ml-1(href='/signup') 
+          strong Sign Up

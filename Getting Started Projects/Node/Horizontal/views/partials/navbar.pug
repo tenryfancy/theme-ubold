@@ -1,0 +1,37 @@
+.topbar-menu
+  .container-fluid
+    #navigation
+      // Navigation Menu
+      ul.navigation-menu
+        li.has-submenu
+          a(href='#')
+            i.fe-airplay
+            | Dashboards 
+            .arrow-down
+          ul.submenu
+            li
+              a(href='/') Dashboard 1
+            li
+              a(href='/ds2') Dashboard 2
+        li.has-submenu
+          a(href='#')
+            i.fe-grid
+            | Apps 
+            .arrow-down
+          ul.submenu
+            li
+              a(href='/level') Level 1.1
+            li.has-submenu
+              a(href='#')
+                | Level 1.2 
+                .arrow-down
+              ul.submenu
+                li
+                  a(href='/level') Level 2.1
+                li
+                  a(href='/level') Level 2.2
+      // End navigation menu
+      .clearfix
+    // end #navigation
+  // end container
+// end navbar-custom

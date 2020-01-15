@@ -1,0 +1,94 @@
+extends ../layout
+
+block content
+  .container-fluid
+    .row
+      .col-12
+        .page-title-box
+          .page-title-right
+            ol.breadcrumb.m-0
+              li.breadcrumb-item
+                a(href='javascript: void(0);') Ubold
+              li.breadcrumb-item.active My Account
+          h4.page-title Profile Information
+    .row
+      .col-xl-12
+        .card-box
+          include ../partials/flash
+
+          h4.header-title.mb-4 Basic Information
+          form(action='/account/profile', method='POST', 'novalidate')
+            input(type='hidden', name='_csrf', value=_csrf)
+
+            .row
+              .col-md-6
+                .form-group.mb-3
+                  label(for='email') Email
+                  input.form-control(type='email', name='email', id='email', value=user.email, autocomplete='email')
+              .col-md-6
+                .form-group.mb-3
+                  label(for='name') Name
+                  input.form-control(type='text', name='name', id='name', value=user.profile.name, autocomplete='name')
+
+            .form-group.mb-3
+              label Gender
+              .col-sm-6
+                .custom-control.custom-radio.custom-control-inline
+                  input.custom-control-input(type='radio', checked=user.profile.gender == 'male', name='gender', value='male', data-toggle='radio', id='male')
+                  label.custom-control-label(for='male') Male
+                  
+                .custom-control.custom-radio.custom-control-inline
+                  input(type='radio', class='form-check-input' checked=user.profile.gender == 'female', name='gender', value='female', data-toggle='radio', id='female')
+                  label.custom-control-label(for='female') Female
+                
+                .custom-control.custom-radio.custom-control-inline
+                  input(type='radio', class='form-check-input' checked=user.profile.gender == 'other', name='gender', value='other', data-toggle='radio', id='other')
+                  label.custom-control-label(for='other') Other
+
+            .row
+              .col-md-6
+                .form-group.mb-3
+                  label(for='location') Location
+                  input.form-control(type='text', name='location', id='location', value=user.profile.location, autocomplete)
+              .col-md-6
+                .form-group.mb-3
+                  label(for='website') Website
+                  input.form-control(type='text', name='website', id='website', value=user.profile.website, autocomplete='url')
+
+            .form-group.mb-3
+              label Gravatar
+              .col-sm-4
+                img(src=user.gravatar(), class='profile', width='100', height='100')
+
+            .form-group.mb-0
+              button.btn.btn.btn-primary(type='submit') Update Profile
+    .row
+      .col-xl-12
+        .card-box
+          h4.header-title.mb-4 Change Password
+
+          form(action='/account/password', method='POST')
+            input(type='hidden', name='_csrf', value=_csrf)
+            .form-group.mb-3
+              label(for='password') New Password
+              input.form-control(type='password', name='password', id='password', autocomplete='new-password')
+
+            .form-group.mb-3
+              label(for='confirmPassword') Confirm Password
+              input.form-control(type='password', name='confirmPassword', id='confirmPassword', autocomplete='new-password')
+
+            .form-group.mb-0
+              button.btn.btn-primary(type='submit') Change Password
+
+    .row
+      .col-xl-12
+        .card-box
+          h4.header-title.mb-3 Delete Account
+
+          form(action='/account/delete', method='POST', onsubmit="return confirm('Are you sure you want to delete your account?');")
+            .form-group
+              p You can delete your account, but keep in mind this action is irreversible.
+
+              input(type='hidden', name='_csrf', value=_csrf)
+            
+              button.btn.btn-danger(type='submit') Delete My Account
